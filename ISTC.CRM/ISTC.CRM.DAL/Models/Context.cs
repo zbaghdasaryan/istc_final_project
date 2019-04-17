@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace ISTC.CRM.DAL.Models
 {
-    public partial class ISTCCRMDBContext : DbContext
+    public partial class Context : DbContext
     {
-        public ISTCCRMDBContext()
+        public Context()
         {
         }
 
-        public ISTCCRMDBContext(DbContextOptions<ISTCCRMDBContext> options)
+        public Context(DbContextOptions<Context> options)
             : base(options)
         {
         }
@@ -23,7 +23,6 @@ namespace ISTC.CRM.DAL.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ISTC.CRM.DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }

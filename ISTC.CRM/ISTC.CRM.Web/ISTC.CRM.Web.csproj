@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ISTC.CRM.BLL\ISTC.CRM.BLL.csproj" />
+    <ProjectReference Include="..\ISTC.CRM.DAL\ISTC.CRM.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

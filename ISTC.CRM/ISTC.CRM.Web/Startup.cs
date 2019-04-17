@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ISTC.CRM.DAL;
+using ISTC.CRM.DAL.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch.Operations;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace ISTC.CRM.Web
 {
@@ -17,6 +21,7 @@ namespace ISTC.CRM.Web
         {
         }
 
+        private List<ConnectionTable> list = new List<ConnectionTable>();
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -27,7 +32,17 @@ namespace ISTC.CRM.Web
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                //User user = new User()
+                //{
+                //    Email = "edvin1984edvin@gmail.com",
+                //    Name = "Edvin",
+                //    Surname = "Hakobyan",
+                //    ConnectionTable = list
+                //};
+
+                //DB_Operations.Create(user);
+                await context.Response.WriteAsync(DB_Operations.Read(1).Name + " " + DB_Operations.Read(1).Surname +
+                                                  " " + DB_Operations.Read(1).Email);
             });
         }
     }
